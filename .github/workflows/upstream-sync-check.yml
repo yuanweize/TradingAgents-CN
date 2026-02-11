@@ -3,7 +3,7 @@ name: 上游同步检查
 on:
   schedule:
     # 每周一上午9点检查上游更新
-    - cron: '0 9 * * 1'
+    - cron: "1 13 * * *"
   workflow_dispatch:
     # 允许手动触发
     inputs:
@@ -24,6 +24,8 @@ jobs:
     steps:
     - name: 检出代码
       uses: actions/checkout@v4
+        with:
+          ref: upstream
       with:
         fetch-depth: 0
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -198,6 +200,8 @@ jobs:
     steps:
     - name: 检出代码
       uses: actions/checkout@v4
+        with:
+          ref: upstream
       with:
         fetch-depth: 0
         token: ${{ secrets.GITHUB_TOKEN }}
