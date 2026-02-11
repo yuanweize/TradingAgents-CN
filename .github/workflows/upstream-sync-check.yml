@@ -13,6 +13,9 @@ on:
         default: 'false'
         type: boolean
 
+permissions:
+  contents: write
+
 jobs:
   check-upstream:
     runs-on: ubuntu-latest
